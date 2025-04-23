@@ -1,36 +1,77 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Site Vitrine SCI MADELEINE
 
-## Getting Started
+Site vitrine professionnel pour la société SCI MADELEINE, spécialisée dans la location de biens commerciaux.
 
-First, run the development server:
+## Fonctionnalités
 
+- Design moderne et responsive
+- Animations fluides avec Framer Motion
+- Formulaire de contact fonctionnel
+- Galerie de biens immobiliers
+- Optimisé pour le SEO
+
+## Technologies utilisées
+
+- Next.js 14
+- TypeScript
+- Tailwind CSS
+- Framer Motion
+
+## Installation
+
+1. Clonez le dépôt :
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone [URL_DU_REPO]
+cd site_vitrine_madeleine
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Installez les dépendances :
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Lancez le serveur de développement :
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Le site sera accessible à l'adresse [http://localhost:3000](http://localhost:3000)
 
-## Learn More
+## Déploiement
 
-To learn more about Next.js, take a look at the following resources:
+### Préparation pour le déploiement
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Générez la version de production :
+```bash
+npm run build
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+2. Testez la version de production localement :
+```bash
+npm start
+```
 
-## Deploy on Vercel
+### Déploiement sur Infomaniak
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Connectez-vous à votre espace client Infomaniak
+2. Accédez à votre hébergement web
+3. Utilisez le gestionnaire de fichiers ou FTP pour uploader le contenu du dossier `out` (généré après le build)
+4. Assurez-vous que le fichier `.htaccess` est présent à la racine avec les règles de réécriture appropriées
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Configuration du formulaire de contact
+
+Pour rendre le formulaire de contact fonctionnel, vous devez :
+
+1. Configurer un service d'email (comme SendGrid, Mailgun, etc.)
+2. Modifier le fichier `src/app/contact/page.tsx` pour intégrer l'API de votre service d'email
+3. Ajouter les variables d'environnement nécessaires dans un fichier `.env.local`
+
+## Personnalisation
+
+- Images : Remplacez les images placeholder dans le dossier `public/images`
+- Contenu : Modifiez les textes directement dans les composants React
+- Styles : Personnalisez les couleurs et les polices dans `tailwind.config.ts`
+
+## Licence
+
+Ce projet est sous licence MIT.
