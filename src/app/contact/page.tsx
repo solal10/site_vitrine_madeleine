@@ -23,13 +23,31 @@ export default function Contact() {
     setStatus('sending');
 
     try {
-      // Ici, vous pouvez ajouter la logique pour envoyer le formulaire
-      // Par exemple, une requête à une API ou un service d'email
-      await new Promise(resolve => setTimeout(resolve, 1000)); // Simulation d'envoi
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.error || 'Failed to send message');
+      }
+
       setStatus('success');
-      setFormData({ name: '', email: '', phone: '', message: '' });
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        message: property
+          ? `Je suis intéressé(e) par le bien suivant :\n\nTitre : ${property.title}\nType : ${property.type}\nSurface : ${property.surface}\nLocalisation : ${property.location}\n\n`
+          : 'Je suis intéressé(e) par le bien suivant :\n\nTitre : [Nom du bien]\nType : [Bureau/Commerce/Entrepôt]\nSurface : [m²]\nLocalisation : [Arrondissement/Ville]'
+      });
     } catch (error) {
       setStatus('error');
+      console.error('Error sending message:', error);
     }
   };
 
